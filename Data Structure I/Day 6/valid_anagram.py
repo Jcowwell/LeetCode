@@ -11,36 +11,17 @@ Constraints:
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
 
+        # anagrams must be equal in length in order to be anagrams
         if len(s) != len(t):
             return False
-        # dict to hold occurences that a char appears in string
-        char_occurences: dict = {}
-
-        # for characters in ransomNote string
-        for char in t:
-            # if character is in the dict then
-            if char in char_occurences:
-                # lets increment 
-                char_occurences[char] += 1
-            # not in occurences so 
-            else:
-                # lets "inititlize" it
-                char_occurences[char] = 1
-        
-        # for characters in magazine  
+        # loop through any char since they're anaygrams
         for char in s:
-            # if character exists 
-            if char in char_occurences:
-                # decrement occurence count
-                char_occurences[char] -= 1
-                # if the occurence count reaches 0 or below 
-                if char_occurences[char] <= 0:
-                    # remove from dict
-                    del char_occurences[char]
-            # if occurence dict is empty
-            if not char_occurences:
-                return True
-        return False
+            # the count of specific chars must be the same 
+            if s.count(char) != t.count(char):
+                # return if not
+                return False
+        # t is an anagram of s!
+        return True
 
 Solution().isAnagram(s = "anagram", t = "nagaram")
 Solution().isAnagram(s = "rat", t = "car")
