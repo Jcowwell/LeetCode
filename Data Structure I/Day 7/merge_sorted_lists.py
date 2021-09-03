@@ -41,13 +41,6 @@ class Solution:
                 l3_length -= 1
         return l3
 
-    def list_length(self, node: ListNode)-> int:
-        count = 0
-        while node:
-            count +=1
-            node=node.next
-        return count
-
     def mergeTwoLinkedLists(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
 
         # No reason to iterate if one or both of our list is empty
