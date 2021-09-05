@@ -29,30 +29,17 @@ class Solution:
         if not head:
             return head
 
-        if head.next is None:
-            return head
-
         # head pointer to return
         root : Optional[ListNode] = head
-        # to sotre previous node in loop
-        prev_node: Optional[ListNode] = None
-        # set of numbers to check dups against
-        numbers: set = set()
 
-        while head:
-            # if the head val is not in out number set
-            if head.val not in numbers:
-                # add it to our set
-                numbers.add(head.val)
-                # set the current node as a previous node for the next iteration 
-                prev_node = head
-            # our current node's value has poped up already
-            else:
-                # set the previous node to the current node's next node 
-                prev_node.next = head.next
-            # move to next node in list
-            head = head.next
-        return root
+        while root:
+            # while the current node has a next node & the current node and next node values are eq
+            while root.next and root.val == root.next.val:
+                # set the current node's next node to the next node's next
+                root.next = root.next.next
+            # iterate through the node list
+            root = root.next
+        return head
 
 
 list1 = [1,1,2,3,3]
