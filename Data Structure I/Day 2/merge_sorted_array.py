@@ -25,7 +25,7 @@ class Solution:
         """
         index: int = 0
         while nums2:
-            # if the pointer index is in no mands land 
+            # if the pointer index is in no mans land 
             if index in range(m,m+n):
                 # let's just assign the value from the second list to theno amnds land 0's position
                 nums1[index] = nums2.pop(0)
