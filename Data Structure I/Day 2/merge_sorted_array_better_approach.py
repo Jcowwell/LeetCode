@@ -35,7 +35,7 @@ class Solution:
                 nums1[index] = nums1[pointer_1]
                 # decrement our second list pointer
                 pointer_1 -= 1
-            # we've either finished iterating through our first list or the last element in the second lsit is bigger thna the last element in our first list
+            # we've either finished iterating through our first list or the last element in the second lsit is bigger than the last element in our first list
             else:
                 nums1[index] = nums2[pointer_2]
                 # decrement out first list pointer
