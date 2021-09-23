@@ -8,7 +8,6 @@ Constraints
 """
 
 from typing import Optional, List
-from queue import Queue
 
 # Definition for a binary tree node.
 class TreeNode:
@@ -20,33 +19,32 @@ class TreeNode:
 class Solution:
     
     def bfs(self, root: Optional[TreeNode]) -> List[List[int]] :
-        tree = []
-        queue = Queue()
-        depth: dict = {}
-        lvl: int = 0
-        # visited: set = set()
-        # visited.add(depth + root.val)
-        tree.append([root.val])
-        queue.put(root)
-
-        while not queue.empty():
-            # FIXME: use Queue size to help determine level
-            node: Optional[TreeNode] = queue.get()
-            nodes = []
-            level: int = len(queue)
-            if node.left:
-                nodes.append(node.left.val)
-                queue.put(node.left)
-                print(f'level: {lvl}')
-            if node.right:
-                nodes.append(node.right.val)
-                queue.put(node.right)
-                print(f'level: {lvl}')
-            if nodes:
-                lvl += 1
-                tree.append(nodes)
-            
-        return tree
+        # list to store tree nodes val by lvl 
+        levels = []
+        # queue to store nodes on current lvl
+        queue = []
+        # append the root since there will only be one node on the root lvl
+        levels.append([root.val])
+        queue.append(root)
+        while queue:
+            # stores the # of nodes in queue (which reflects the # of nodes on the current lvl since were doing BFS)           
+            num_of_nodes_on_lvl: int = len(queue)
+            # while the number of nodes on the current lvl is not visited     
+            while (num_of_nodes_on_lvl):
+                # get the nodes out in FIFO
+                node: Optional[TreeNode] = queue.pop(0)
+                # Queue the left and right nodes into the queue
+                if node.left:
+                    queue.append(node.left)
+                if node.right:
+                    queue.append(node.right)
+                # decremnent to reach end loop 
+                num_of_nodes_on_lvl -= 1
+            # only add to tree if queue has nodes
+            if queue:
+                # add nodes of the current level tree
+                levels.append([node.val for node in queue])
+        return levels
 
     def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
         # no point of tranversing an empty tree

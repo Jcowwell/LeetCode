@@ -12,8 +12,6 @@ Constraints
 """
 
 # Definition for singly-linked list.
-from multiprocessing.connection import Listener
-
 
 class ListNode:
     def __init__(self, x):
