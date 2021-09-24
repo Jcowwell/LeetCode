@@ -15,14 +15,14 @@ Constraints
 class Solution:
     def isValid(self, s: str) -> bool:
         
+        # we know the pair isn't valid if there's not an even # of chars
+        if len(s) % 2 != 0:
+            return False
+
         # pairs dictonary to lookup ending pair via opening
         pairs: dict = {'{': '}', '(': ')', '[' : ']' }
         # set to verify opening part of pairs
         opening: set = {'{', '(', '['}
-        
-        # we know the pair isn't valid if there's not an even # of chars
-        if len(s) % 2 != 0:
-            return False
 
         # opening list to be used as a stack
         openings: list = []
