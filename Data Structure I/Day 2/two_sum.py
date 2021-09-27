@@ -21,7 +21,7 @@ Example 3:
  
 Constraints:
     2 <= nums.length <= 104
-    -109 <= nums[i] <= 109
+    -109 <= nums[i] <= 109n
     -109 <= target <= 109
     Only one valid answer exists.
 """
@@ -37,7 +37,7 @@ class Solution:
             difference = target - element
             # if the difference is eq to the element and there is more than one in the list let's return the first and second occurrence
             if difference == element and nums.count(difference) >= 2:
-                # DN: Highly inefficient i know. 
+                # HACK:FIXME: Highly inefficient
                 return [index, [i for i, n in enumerate(nums) if n == difference][1]]
             # check if element was already calculated beforehand
             if element in differences:

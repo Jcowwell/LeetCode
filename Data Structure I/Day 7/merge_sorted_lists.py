@@ -51,7 +51,7 @@ class Solution:
 
         # root node with initial dummy node
         root: Optional[ListNode] = ListNode()
-        # tail node to point at the end of root node. will be udsed to append nodes at the end of root
+        # tail node to point at the end of root node. will be used to append nodes at the end of root
         tail: Optional[ListNode] = root
 
         # while either list is not fully iterated through

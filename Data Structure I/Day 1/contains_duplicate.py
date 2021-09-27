@@ -9,6 +9,8 @@ Task
 """
 from typing import List
 
+# FIXME: ANNOTATE
+
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
         nums_list_length: int = len(nums)
