@@ -8,7 +8,7 @@ Constraints
     -1000 <= Node.val <= 1000
 """
 
-from typing import Optional, List
+from typing import Optional
 
 # Definition for a binary tree node.
 class TreeNode:

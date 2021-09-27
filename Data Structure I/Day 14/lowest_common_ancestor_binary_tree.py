@@ -15,7 +15,7 @@ Constraints
 
 from typing import Optional
 
-# FIXME: Annotate and utilize the fact the the lowest common ancestor will be a vlaue inbetween p and q
+# FIXME: ANNOTATE AND UTILIZE THE FACT THE THE LOWEST COMMON ANCESTOR WILL BE A VALUE BETWEEN P AND Q
 # Definition for a binary tree node.
 
 class TreeNode:
